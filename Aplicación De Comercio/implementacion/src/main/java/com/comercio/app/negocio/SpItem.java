@@ -1,17 +1,17 @@
 package com.comercio.app.negocio;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.comercio.app.exceptions.NoCorrectQuantity;
 
 public class SpItem extends Item{
 
+    private Double porcentaje = null;
+
     public SpItem(double cantidad, Producto producto) {
         super(cantidad, producto);
+        if(!((cantidad == Math.floor(cantidad)) && !Double.isInfinite(cantidad))) {
+            throw new NoCorrectQuantity("La cantidad para este item debe ser entera!");
+        }
     }
-
-    private Double porcentaje = null;
 
     @Override
     protected Double calcularTotal() {
@@ -31,5 +31,4 @@ public class SpItem extends Item{
         }
         return porcentaje == 0 ? 1 : porcentaje / 100;
     }
-
 }

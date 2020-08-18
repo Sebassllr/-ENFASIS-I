@@ -1,5 +1,6 @@
 package com.comercio.app;
 
+import com.comercio.app.exceptions.NoCorrectQuantity;
 import com.comercio.app.exceptions.NoProductAvailable;
 import com.comercio.app.exceptions.NotSupportedCode;
 import com.comercio.app.filereader.CSVReader;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 
 public class App {
 
-    final List<Producto> productos = CSVReader.readCSV();
+    private final List<Producto> productos = CSVReader.readCSV();
     private final Scanner scanner = new Scanner(System.in);
     private final Tienda tienda = new Tienda();
     private final Cliente cliente = new Cliente("Daniela Villegas", "1053", new CarritoDeCompras());
@@ -46,9 +47,11 @@ public class App {
                         salir = Boolean.TRUE;
                     }
                 }
-            } catch(NoProductAvailable | NotSupportedCode ex) {
-                System.err.println("No disponible! :(");
+            } catch(NoProductAvailable | NotSupportedCode | NoCorrectQuantity ex) {
+                System.err.println("!====================================!");
+                System.err.println("Error!");
                 System.err.println(ex.getMessage());
+                System.err.println("!====================================!");
             }
         } while(!salir);
 
@@ -59,7 +62,7 @@ public class App {
         do {
             int i = 1;
             for(Producto prod : productos) {
-                System.out.printf("%d-Producto: %s\t\tPrecio: %.0f\t\tCantidad: %d\n", i++, prod.getNombre(), prod.getPrecio(), prod.getUnidadesDisponibles());
+                System.out.printf("%d-Producto: %s \t\tCódigo: %s\t\tPrecio: %.0f\t\tCantidad: %d\n", i++, prod.getNombre(), prod.getSku(), prod.getPrecio(), prod.getUnidadesDisponibles());
             }
             System.out.printf("%d-Salir\n", i);
             option = scanner.nextInt() - 1;
@@ -68,6 +71,7 @@ public class App {
             System.out.println("Qué cantidad desea?");
             double cantidad = scanner.nextDouble();
             agregarACarrito(productos.get(option), cantidad);
+            System.out.println("Agregado correctamente");
         }
     }
 
