@@ -1,6 +1,6 @@
 package com.comercio.app.negocio;
 
-import com.comercio.app.NoProductAvailable;
+import com.comercio.app.exceptions.NoProductAvailable;
 import lombok.ToString;
 
 import java.util.ArrayList;

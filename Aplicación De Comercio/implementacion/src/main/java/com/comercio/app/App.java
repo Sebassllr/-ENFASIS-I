@@ -1,32 +1,23 @@
 package com.comercio.app;
 
+import com.comercio.app.exceptions.NoProductAvailable;
+import com.comercio.app.exceptions.NotSupportedCode;
+import com.comercio.app.filereader.CSVReader;
 import com.comercio.app.negocio.CarritoDeCompras;
 import com.comercio.app.negocio.Cliente;
 import com.comercio.app.negocio.Producto;
 import com.comercio.app.negocio.Tienda;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class App {
 
-    List<Producto> productos = new ArrayList<>(Arrays.asList(
-            new Producto("WE1234", "Tomates", "Soy un tomate", 3000, 2),
-            new Producto("SP1234", "Agucate", "Soy un Agucate", 50, 1800),
-            new Producto("EA1234", "Piña", "Soy un Piña", 20, 3200),
-            new Producto("SP1234", "Limón", "Soy un Limón", 10, 2),
-            new Producto("EA1234", "Lulo", "Soy un lulo", 15, 300),
-            new Producto("WE1234", "Cebolla", "Soy un Cebolla", 3500, 2.8),
-            new Producto("SP1234", "Papa", "Soy un Papa", 12, 200),
-            new Producto("EA1234", "Yuca", "Soy un Yuca", 10, 800)
-    ));
+    final List<Producto> productos = CSVReader.readCSV();
+    private final Scanner scanner = new Scanner(System.in);
+    private final Tienda tienda = new Tienda();
+    private final Cliente cliente = new Cliente("Daniela Villegas", "1053", new CarritoDeCompras());
 
-    private Scanner scanner = new Scanner(System.in);
-    private Tienda tienda = new Tienda();
-    private Cliente cliente = new Cliente("Daniela Villegas", "1053", new CarritoDeCompras());
     public static void main(String[] args){
         App app = new App();
         app.mainMenu();

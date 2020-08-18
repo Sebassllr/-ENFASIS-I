@@ -1,6 +1,6 @@
 package com.comercio.app.negocio;
 
-import com.comercio.app.NotSupportedCode;
+import com.comercio.app.exceptions.NotSupportedCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

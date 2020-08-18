@@ -16,7 +16,7 @@ public class SpItem extends Item{
     @Override
     protected Double calcularTotal() {
         if(porcentaje == null) porcentaje = calcularDescuento();
-        return (producto.getPrecio() * cantidad) * porcentaje;
+        return (producto.getPrecio() * cantidad) * (1 - porcentaje);
     }
 
     public Double calcularDescuento() {

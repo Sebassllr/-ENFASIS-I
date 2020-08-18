@@ -8,7 +8,6 @@ public class Tienda {
     private double acumulado;
 
     public void agregarProductoACarrito(Producto producto, double cantidad, Cliente cliente) {
-
             cliente.agregarProductoACarrito(producto, cantidad);
     }
 }

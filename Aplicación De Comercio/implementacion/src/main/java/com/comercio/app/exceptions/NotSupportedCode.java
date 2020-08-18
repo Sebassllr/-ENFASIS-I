@@ -1,4 +1,4 @@
-package com.comercio.app;
+package com.comercio.app.exceptions;
 
 public class NotSupportedCode extends RuntimeException {
 
