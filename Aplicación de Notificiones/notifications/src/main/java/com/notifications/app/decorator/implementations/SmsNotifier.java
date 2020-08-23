@@ -1,0 +1,18 @@
+package com.notifications.app.decorator.implementations;
+
+import com.notifications.app.decorator.BaseNotifier;
+
+public class SmsNotifier extends BaseNotifier {
+
+    public SmsNotifier() {}
+
+    public SmsNotifier(BaseNotifier notifier) {
+        super(notifier);
+    }
+
+    @Override
+    public void send(String message) {
+        sendNotifier(message);
+        System.out.println("Hello from SmsNotifier " + message);
+    }
+}
