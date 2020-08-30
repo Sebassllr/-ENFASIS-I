@@ -1,4 +1,4 @@
-package com.notifications.app.decorator;
+package com.notifications.app.library;
 
 public abstract class BaseNotifier {
 

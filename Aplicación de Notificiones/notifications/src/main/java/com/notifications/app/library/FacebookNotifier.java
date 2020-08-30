@@ -1,8 +1,6 @@
-package com.notifications.app.decorator.implementations;
+package com.notifications.app.library;
 
-import com.notifications.app.decorator.BaseNotifier;
-
-public class FacebookNotifier extends BaseNotifier {
+class FacebookNotifier extends BaseNotifier {
 
     public FacebookNotifier() {
         super();

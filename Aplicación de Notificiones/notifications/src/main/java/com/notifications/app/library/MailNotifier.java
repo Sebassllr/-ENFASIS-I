@@ -1,11 +1,8 @@
-package com.notifications.app.decorator.implementations;
+package com.notifications.app.library;
 
-import com.notifications.app.decorator.BaseNotifier;
+class MailNotifier extends BaseNotifier {
 
-public class MailNotifier extends BaseNotifier {
-
-    public MailNotifier() {
-    }
+    public MailNotifier() {}
 
     public MailNotifier(BaseNotifier notifier) {
         super(notifier);

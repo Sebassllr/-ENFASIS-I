@@ -1,8 +1,6 @@
-package com.notifications.app.decorator.implementations;
+package com.notifications.app.library;
 
-import com.notifications.app.decorator.BaseNotifier;
-
-public class SmsNotifier extends BaseNotifier {
+class SmsNotifier extends BaseNotifier {
 
     public SmsNotifier() {}
 
