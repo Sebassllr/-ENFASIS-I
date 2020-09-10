@@ -2,8 +2,6 @@ package com.notifications.app.library;
 
 class SmsNotifier extends BaseNotifier {
 
-    public SmsNotifier() {}
-
     public SmsNotifier(BaseNotifier notifier) {
         super(notifier);
     }

@@ -1,11 +1,10 @@
 package com.notifications.app;
 
-import com.notifications.app.library.BaseNotifier;
 import com.notifications.app.library.NotifierBuilder;
 
-public class App {
+public class Cliente {
 
-    static Boolean cbSkype=true, cbMail=false, cbFacebook=true, cbSms=false;
+    static Boolean cbSkype=false, cbMail=false, cbFacebook=true, cbSms=false;
 
     public static void main(String[] args) {
         NotifierBuilder notifierBuilder = new NotifierBuilder();
@@ -13,6 +12,9 @@ public class App {
         if(cbMail) notifierBuilder.Mail();
         if(cbFacebook) notifierBuilder.Facebook();
         if(cbSms) notifierBuilder.Sms();
+
         notifierBuilder.build().send("Notificación");
+
+        new NotifierBuilder().Facebook().Sms().Mail().Skype().build().send("Otra notificación");
     }
 }

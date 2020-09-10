@@ -2,10 +2,6 @@ package com.notifications.app.library;
 
 class SkypeNotifier extends BaseNotifier {
 
-    public SkypeNotifier() {
-        super();
-    }
-
     public SkypeNotifier(BaseNotifier notifier) {
         super(notifier);
     }

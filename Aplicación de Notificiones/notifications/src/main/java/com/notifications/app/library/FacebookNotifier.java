@@ -2,10 +2,6 @@ package com.notifications.app.library;
 
 class FacebookNotifier extends BaseNotifier {
 
-    public FacebookNotifier() {
-        super();
-    }
-
     public FacebookNotifier(BaseNotifier notifier) {
         super(notifier);
     }

@@ -2,8 +2,6 @@ package com.notifications.app.library;
 
 class MailNotifier extends BaseNotifier {
 
-    public MailNotifier() {}
-
     public MailNotifier(BaseNotifier notifier) {
         super(notifier);
     }
